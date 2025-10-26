@@ -5,17 +5,20 @@
   "type": "module",
   "scripts": {
     "start:server": "node server.js",
+    "start:duel-server": "node duel-server.js",
     "start:frontend": "vite",
     "start:stripe": "node stripe-server.js",
-    "dev": "npm-run-all --parallel start:server start:frontend start:stripe",
+    "dev": "npm-run-all --parallel start:server start:duel-server start:frontend start:stripe",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
     "server": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seed-problems.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
+    "@monaco-editor/react": "^4.7.0",
     "@stripe/react-stripe-js": "^3.9.1",
     "@stripe/stripe-js": "^7.8.0",
     "@supabase/supabase-js": "^2.55.0",
@@ -39,6 +42,7 @@
     "socket.io-client": "^4.8.1",
     "sqlite3": "^5.1.7",
     "stripe": "^18.4.0",
+    "vm2": "^3.10.0",
     "zod": "^4.0.17"
   },
   "devDependencies": {

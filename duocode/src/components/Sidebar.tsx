@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { BookOpen, Code, FolderOpen, Trophy, User as UserIcon, Zap, Heart, ShoppingCart, Store, LogOut, Loader2, Clock } from 'lucide-react';
+import { BookOpen, Code, FolderOpen, Trophy, User as UserIcon, Zap, Heart, ShoppingCart, Store, LogOut, Loader2, Clock, Swords, Shield } from 'lucide-react';
 import { useUser } from '../context/UserContext';
 import { useAuth } from '../context/AuthContext';
 import { avatars } from '../data/avatars';
@@ -57,10 +57,12 @@ const Sidebar: React.FC<SidebarProps> = ({
     if (onClose) onClose(); // Close mobile sidebar after navigation
   };
   const navItems = [
+    { id: 'duels', label: 'Code Duels', icon: Swords },
     { id: 'learn', label: 'Learn', icon: BookOpen },
     { id: 'store', label: 'Store', icon: Store },
     { id: 'leaderboard', label: 'Leaderboard', icon: Trophy },
     { id: 'profile', label: 'Profile', icon: UserIcon },
+    { id: 'admin', label: 'Admin', icon: Shield },
   ];
 
   // Get current avatar (with fallback)

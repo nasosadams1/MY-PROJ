@@ -8,13 +8,15 @@ import Learn from './components/Learn';
 import Store from './components/Store';
 import RealTimeLeaderboard from './components/Leaderboard';
 import Profile from './components/Profile';
+import DuelsDashboard from './components/DuelsDashboard';
+import AdminPanel from './components/AdminPanel';
 import { useAuth } from './context/AuthContext';
 import LoadingScreen from './components/auth/LoadingScreen';
 import { Menu, X } from 'lucide-react';
 import AuthConfirm from './components/AuthConfirm';
 
 function AppContent() {
-  const [currentSection, setCurrentSection] = useState('learn');
+  const [currentSection, setCurrentSection] = useState('duels');
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user, loading } = useAuth();
@@ -23,6 +25,8 @@ function AppContent() {
 
   const renderSection = () => {
     switch (currentSection) {
+      case 'duels':
+        return <DuelsDashboard />;
       case 'learn':
         return <Learn setCurrentSection={setCurrentSection} />;
       case 'store':
@@ -38,8 +42,10 @@ function AppContent() {
         );
       case 'profile':
         return <Profile />;
+      case 'admin':
+        return <AdminPanel />;
       default:
-        return <Learn />;
+        return <DuelsDashboard />;
     }
   };
 
